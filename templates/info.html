@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+{%block body%}
+<head>
+    <script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <br><br><br><br>
+    <div class="jumbotron">
+        <h1 class="display-3">INTEGRANTES</h1>
+        <p class="lead">
+            <H4><font face="Courier New">
+                <br>
+                <li> Fernando Guachalla Cortez</li>
+                <br>
+                <li> Eliana Ercilla Roa</li>
+                <br>
+                <li> Felix Daniel Cuenca Zurita </li>
+                <br>
+                <li> Cesar Aner Alcon Callejas </li>
+            </font>
+            </H4>
+        </p>
+        <hr class="my-4">
+        <p>CODIGO COMPLETO GITHUB.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="https://github.com/Fernand0GC?tab=repositories" role="button"><i class="fab fa-github"></i></a>
+        </p>
+      </div>
+
+
+
+<br><br><br><br>
+<br><br><br><br>
+<font color="FFFFFF" size=3 face="Courier New">
+    <h1>
+        HERRAMIENTAS
+    </h1>
+</font>
+    <br><br><br><br>
+    <div class="card">
+        <center>
+        <img src="  {{ url_for('static', filename='images/python.png') }}" width="200" height="200" class="figure-img img-fluid rounded" alt="hi">
+      </center>
+        <div class="card-body">
+          <h5 class="card-title">PYTHON</h5>
+          <p class="card-text">Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código.​ Se trata de un lenguaje de programación multiparadigma, ya que soporta parcialmente la orientación a objetos, programación imperativa y, en menor medida, programación funcional.</p>
+          <a href="https://www.python.org/" class="btn btn-primary">Go python</a>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <center>
+        <img src="  {{ url_for('static', filename='images/flask.png') }}" width="300" height="300" class="figure-img img-fluid rounded" alt="hi">
+      </center>
+        <div class="card-body">
+          <h5 class="card-title">FLASK</h5>
+          <p class="card-text">Flask es un framework minimalista escrito en Python que permite crear aplicaciones web rápidamente y con un mínimo número de líneas de código.</p>
+          <a href="https://www.python.org/" class="btn btn-primary">Go Flask</a>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <center>
+        <img src="  {{ url_for('static', filename='images/vsCode.png') }}" width="250" height="250" class="figure-img img-fluid rounded" alt="hi">
+      </center>
+        <div class="card-body">
+          <h5 class="card-title">Visual Studio Code</h5>
+          <p class="card-text">Visual Studio Code es un editor de código fuente desarrollado por Microsoft para Windows, Linux y macOS. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código.</p>
+          <a href="https://www.python.org/" class="btn btn-primary">Go vsCode</a>
+        </div>
+      </div>
+</body>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{%block body%}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action="/update_cliente/{{client.0}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre_cliente" placeholder="nombre cliente" value="{{ client.1}}"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="identidad_cliente" placeholder="cedula de identidad" value="{{ client.2}}"
+                        class="form-control">
+                </div>
+                <div class="from-group">
+                    <input type="email" name="Email" placeholder="Email" value="{{ client.3}}" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Actualizar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}

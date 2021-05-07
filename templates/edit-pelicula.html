@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{%block body%}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action="/update_pelicula/{{pelicula.0}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre_pelicula" placeholder="nombre pelicula" value="{{ pelicula.1}}"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" placeholder="descripcion" value="{{ pelicula.2}}"
+                        class="form-control">
+
+                </div>
+                <select name="tipo_de_pelicula">
+                    <option value="2">Romance</option>
+                    <option value="3">Accion</option>
+                    <option value="4">Infantil</option>
+                    <option value="5">Aventuras</option>
+                    <option value="6">Comedias</option>
+                    <option value="8">De terror</option>
+                    <option value="9">Musicales</option>
+                    <option value="10">Ciencia ficción</option>
+                    <option value="11">bélicas</option>
+                    <option value="12">del Oeste</option>
+                    <option value="13">Suspenso</option>
+                    <option value="7">Dramáticas</option>
+                </select>
+                <br>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Actualizar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock%}

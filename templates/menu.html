@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{%block body%}
+<html>
+
+<head>
+  
+  <img src="{{ url_for('static', filename='images/camara.png') }}" class="rounded float-start"  width="50" height="50" align="right">
+
+</head>
+<body>
+  <br><br><br><br><br><br>
+  
+    <img src="  {{ url_for('static', filename='images/emi.png') }}" class="card-img-top" alt="emi">
+    <br><br><br><br>
+
+    <p>El presente proyecto fue desarrollado en su totalidad por estudiantes de la  <a href="https://www.emi.edu.bo/">ESCUELA MILITAR DE INGENIERIA</a> para poder realizar CRUD sobre las diferentes tablas dentro de nuestra base de datos.</p>
+    <p>se trataria de un diseño web para el control de un cine.</p>
+    <img src="  {{ url_for('static', filename='images/emi2.png') }}" class="card-img-top" alt="emi">
+
+    <p>La siguiente imagen muestra el <strong>Diagrama de entidad Relacion</strong> donde vemos todas las relaciones de las tablas para poder.</p>
+    <p>conformar nuestro cine.</p>
+    <img src="  {{ url_for('static', filename='images/MR.png') }}" class="card-img-top" alt="emi">
+</body>
+</html>
+{% endblock %}

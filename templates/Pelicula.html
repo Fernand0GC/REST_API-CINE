@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{%block body%}
+<div class="row">
+    <div class="col-md-5">
+
+        <head>
+
+            {%with messages = get_flashed_messages()%}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
+        </head>
+        <div class="card card-body">
+            <form action="add_pelicula" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre_pelicula" placeholder="Pelicula..." class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descripcion" placeholder="Descripcion..." class="form-control">
+                </div>
+                <select name="tipo_de_pelicula" >
+                    <option value=2>Romance</option> 
+                    <option value=3>Accion</option> 
+                    <option value=4>Infantil</option>
+                    <option value=5>Aventuras</option> 
+                    <option value=6>Comedias</option> 
+                    <option value=8>De terror</option> 
+                    <option value=9>Musicales</option> 
+                    <option value=10>Ciencia ficción</option> 
+                    <option value=11>bélicas</option> 
+                    <option value=12>del Oeste</option> 
+                    <option value=13>Suspenso</option> 
+                    <option value=7>Dramáticas</option> 
+                 </select>
+                  <br><br><br>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <table class="table table-striped table-hover table-bordered table-sm bg-secondary">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>Pelicula</td>
+                    <td>Genero</td>
+                    <td>Descripcion</td>
+                    <td>Operacion</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                <tr>
+                    <td>{{ pelicula.0 }}</td>
+                    <td>{{ pelicula.1 }}</td>
+                    <td>{{ pelicula.2 }}</td>
+                    <td>{{ pelicula.3 }}</td>
+                    <td>
+                        <center>
+                            
+                            <a href="/edit_pelicula/{{pelicula.0}}" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                            <a href="/delete_pelicula/{{pelicula.0}}" class="btn btn-danger btn-delete"><i class="far fa-trash-alt" ></i></a>
+                            
+                        </center>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
