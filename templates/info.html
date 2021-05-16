@@ -1,74 +1,131 @@
 {% extends 'layout.html' %}
 {%block body%}
+
 <head>
-    <script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <br><br><br><br>
-    <div class="jumbotron">
-        <h1 class="display-3">INTEGRANTES</h1>
-        <p class="lead">
-            <H4><font face="Courier New">
-                <br>
-                <li> Fernando Guachalla Cortez</li>
-                <br>
-                <li> Eliana Ercilla Roa</li>
-                <br>
-                <li> Felix Daniel Cuenca Zurita </li>
-                <br>
-                <li> Cesar Aner Alcon Callejas </li>
-            </font>
-            </H4>
-        </p>
-        <hr class="my-4">
-        <p>CODIGO COMPLETO GITHUB.</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="https://github.com/Fernand0GC/REST_API-CINE" role="button"><i class="fab fa-github"></i></a>
-        </p>
-      </div>
+  <br><br><br><br>
+  <div class="jumbotron">
+    <h1 class="display-3">INTEGRANTES</h1>
+    <p class="lead">
+    <H4>
+      <font face="Courier New">
+        <br>
+        <li> Fernando Guachalla Cortez</li>
+        <br>
+        <li> Eliana Ercilla Roa</li>
+        <br>
+        <li> Felix Daniel Cuenca Zurita </li>
+        <br>
+        <li> Cesar Aner Alcon Callejas </li>
+      </font>
+    </H4>
+    </p>
+    <hr class="my-4">
+    <p>CODIGO COMPLETO GITHUB.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="https://github.com/Fernand0GC/REST_API-CINE" role="button"><i
+          class="fab fa-github"></i></a>
+    </p>
+  </div>
 
 
 
-<br><br><br><br>
-<br><br><br><br>
-<font color="FFFFFF" size=3 face="Courier New">
+  <br><br><br><br>
+  <br><br><br><br>
+  <font color="FFFFFF" size=3 face="Courier New">
     <h1>
-        HERRAMIENTAS
+      HERRAMIENTAS
     </h1>
-</font>
-    <br><br><br><br>
-    <div class="card">
-        <center>
-        <img src="  {{ url_for('static', filename='images/python.png') }}" width="200" height="200" class="figure-img img-fluid rounded" alt="hi">
-      </center>
-        <div class="card-body">
-          <h5 class="card-title">PYTHON</h5>
-          <p class="card-text">Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código.​ Se trata de un lenguaje de programación multiparadigma, ya que soporta parcialmente la orientación a objetos, programación imperativa y, en menor medida, programación funcional.</p>
-          <a href="https://www.python.org/" class="btn btn-primary">Go python</a>
-        </div>
-      </div>
-      <br>
-      <div class="card">
-        <center>
-        <img src="  {{ url_for('static', filename='images/flask.png') }}" width="300" height="300" class="figure-img img-fluid rounded" alt="hi">
-      </center>
-        <div class="card-body">
-          <h5 class="card-title">FLASK</h5>
-          <p class="card-text">Flask es un framework minimalista escrito en Python que permite crear aplicaciones web rápidamente y con un mínimo número de líneas de código.</p>
-          <a href="https://www.python.org/" class="btn btn-primary">Go Flask</a>
-        </div>
-      </div>
-      <br>
-      <div class="card">
-        <center>
-        <img src="  {{ url_for('static', filename='images/vsCode.png') }}" width="250" height="250" class="figure-img img-fluid rounded" alt="hi">
-      </center>
-        <div class="card-body">
-          <h5 class="card-title">Visual Studio Code</h5>
-          <p class="card-text">Visual Studio Code es un editor de código fuente desarrollado por Microsoft para Windows, Linux y macOS. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código.</p>
-          <a href="https://www.python.org/" class="btn btn-primary">Go vsCode</a>
-        </div>
-      </div>
+  </font>
+  <br><br><br><br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/python.png') }}" width="200" height="200"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">PYTHON</h5>
+      <p class="card-text">Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la
+        legibilidad de su código.​ Se trata de un lenguaje de programación multiparadigma, ya que soporta parcialmente
+        la orientación a objetos, programación imperativa y, en menor medida, programación funcional.</p>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/flask.png') }}" width="300" height="300"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">FLASK</h5>
+      <p class="card-text">Flask es un framework minimalista escrito en Python que permite crear aplicaciones web
+        rápidamente y con un mínimo número de líneas de código.</p>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/vsCode.png') }}" width="250" height="250"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">Visual Studio Code</h5>
+      <p class="card-text">Visual Studio Code es un editor de código fuente desarrollado por Microsoft para Windows,
+        Linux y macOS. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización
+        inteligente de código, fragmentos y refactorización de código.</p>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/Bootstrap.png') }}" width="300" height="300"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">Bootstrap</h5>
+      <p class="card-text">es una biblioteca multiplataforma o conjunto de herramientas 
+        de código abierto para diseño de sitios y aplicaciones web..</p>
+      <a href="https://getbootstrap.com/" class="btn btn-primary">Go Bootstrap</a>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/HTML.png') }}" width="200" height="200"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">Html</h5>
+      <p class="card-text">siglas en inglés de HyperText Markup Language, hace referencia al 
+        lenguaje de marcado para la elaboración de páginas web.</p>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/JavaScript-logo-600x375.png') }}" width="300" height="300"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">JavaScript</h5>
+      <p class="card-text">JavaScript es un lenguaje de programación interpretado, dialecto del estándar ECMAScript.
+        Se define como orientado a objetos, ​ basado en prototipos, imperativo, débilmente tipado y dinámico.</p>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <center>
+      <img src="  {{ url_for('static', filename='images/CSS-Logo.png') }}" width="300" height="300"
+        class="figure-img img-fluid rounded" alt="hi">
+    </center>
+    <div class="card-body">
+      <h5 class="card-title">CSS</h5>
+      <p class="card-text">en español «Hojas de estilo en cascada», es un lenguaje de diseño gráfico para definir y 
+      crear la presentación de un documento estructurado escrito en un lenguaje de marcado.​</p>
+    </div>
+  </div>
 </body>
 {% endblock %}

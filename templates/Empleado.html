@@ -30,7 +30,8 @@
                 <div class="form-group">
                     <input type="text" name="identidad_empleado" placeholder="CI..." class="form-control">
                 </div>
-                <select name="tipo_cargo">
+                <select name="tipo_cargo" >
+                    <option selected>Selecciona su Cargo</option>
                     <option value=1>Administracion</option>
                     <option value=2>Proyectista</option>
                     <option value=3>Cajero de Boleteria</option>
@@ -38,9 +39,12 @@
                     <option value=5>Encargado de Sala</option>
                 </select>
                 <br><br>
-                <div class="form-group">
-                    <input type="text" name="jefe" placeholder="ID Jefe..." class="form-control">
-                </div>
+                <select name="jefe" >
+                    <option selected>Selecciona su Jefe</option>
+                    <option value=1>Fernando Rivero Torrez</option>
+                    <option value=2>Jose Carlos Medina Suarez</option>
+                </select>
+                <br><br>
                 <div class="form-group">
                     <input type="date" name="fecha_ingreso" placeholder="Fecha de Ingreso..." class="form-control">
                 </div>
@@ -63,7 +67,8 @@
                     <td>CI</td>
                     <td>Cargo</td>
                     <td>ID Jefe</td>
-                    <td>Fecha de Ingreso</td>
+                    <td>Jefe</td>
+                    <td>Ingreso</td>
                     <td>Salario</td>
                     <td>Operacion</td>
                 </tr>
@@ -78,7 +83,8 @@
                     <td>{{ empleado.4 }}</td>
                     <td>{{ empleado.5 }}</td>
                     <td>{{ empleado.6 }}</td>
-                    <td>{{ empleado.7 }}Bs</td>
+                    <td>{{ empleado.7 }}</td>
+                    <td>{{ empleado.8 }}Bs</td>
                     <td>
                         <center>
 
@@ -96,6 +102,11 @@
         </table>
     </div>
 </div>
-
+<br><br><br><br>
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+      <li class="page-item" ><a class="page-link " href="/tablas"><i class="fas fa-long-arrow-alt-left"></i></a></li>
+    </ul>
+  </nav>
 
 {% endblock %}

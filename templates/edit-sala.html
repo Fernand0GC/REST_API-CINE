@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{%block body%}
+<script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action="/update_sala/{{sala.0}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nombre_sala" placeholder="Nombre sala" class="form-control" value="{{ sala.2 }}">
+                </div>
+                <select name="id_tipo_sala" class="form-select">
+                    <option value=1>3D</option>
+                    <option value=2>2D</option>
+                    <option value=4>VIP 3D</option>
+                    <option value=3>VIP 2D</option>
+                </select>
+                <br><br><br>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Actualizar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+      <li class="page-item" ><a class="page-link " href="/Sala"><i class="fas fa-long-arrow-alt-left"></i></a></li>
+    </ul>
+  </nav>
+{% endblock%}

@@ -15,7 +15,17 @@ app.secret_key='my secret key'
 
 @app.route('/')
 def index():
-    return render_template('menu.html')
+    cursor = conexion.cursor()
+    cursor.execute(" select count (*) from sala")
+    cantsalas = cursor.fetchall()
+    cursor.execute(" select count (*) from cliente")
+    cantcliente = cursor.fetchall()
+    cursor.execute(" select count (*) from empleado")
+    cantempleado = cursor.fetchall()
+    cursor.execute(" select count (*) from pelicula")
+    cantpelicula = cursor.fetchall()
+    cursor.close
+    return render_template('menu.html',salas=cantsalas, clientes=cantcliente, empleado=cantempleado, pelicula=cantpelicula)
 
 @app.route('/info')
 def info():
@@ -67,7 +77,7 @@ def update_client(id):#ACTUALIZAR CLIENTE
         conexion.commit()
         flash('Client Updated Successfully')
         return redirect(url_for('Clientes'))
-@app.route('/delete/<string:id>', methods = ['POST', 'GET'])
+@app.route('/delete_cliente/<string:id>', methods = ['POST', 'GET'])
 def delete_cliente(id):#ELIMINAR CLIENTE
     cur=conexion.cursor()
     cur.execute('DELETE FROM cliente WHERE id_cliente = {0}'.format(id))
@@ -133,7 +143,7 @@ def delete_pelicula(id):
 @app.route('/Empleado')
 def Empleados():
     cursor=conexion.cursor()
-    query="SELECT id_empleado,nombre_empleado ,apellido_empleado, identidad_empleado, nombre_tipo_cargo, jefe, fecha_ingreso, salario FROM empleado INNER JOIN tipo_cargo ON empleado.id_cargo = tipo_cargo.id_tipo_cargo;"
+    query="SELECT e2.id_empleado, e2.nombre_empleado ,e2.apellido_empleado, e2.identidad_empleado,e3.nombre_tipo_cargo, e2.jefe as id_jefe, e1.nombre_empleado as nombre_jefe, e2.fecha_ingreso, e2.salario FROM empleado e1 FULL OUTER  join empleado e2 on (e2.jefe = e1.id_empleado)inner join tipo_cargo e3 ON (e3.id_tipo_cargo =e2.id_cargo);"
     cursor.execute(query)
     data=cursor.fetchall()
     cursor.close
@@ -178,11 +188,71 @@ def update_empleado(id):
             jefe=%s,
             fecha_ingreso=%s,
             salario=%s
-        WHERE id_pelicula = %s
+        WHERE id_empleado = %s
         """, (nombre_empleado, apellido_empleado, identidad_empleado,tipo_cargo,jefe,fecha_ingreso,salario, id))
         conexion.commit()
         flash('Employee Updated Successfully')
         return redirect(url_for('Empleados'))
+@app.route('/delete_empleado/<string:id>', methods = ['POST', 'GET'])
+def delete_empleado(id):
+    cur=conexion.cursor()
+    cur.execute('DELETE FROM empleado WHERE id_emplado = {0}'.format(id))
+    conexion.commit()
+    flash('Employee Removed Successfully...')
+    return redirect(url_for('Empleados'))
+#FIN TABLA EMPLEADO
+
+#TABLA SALA
+@app.route('/Sala')
+def Salas():
+    cursor=conexion.cursor()
+    query="SELECT id_sala, nombre_sala, nombre_tipo from sala INNER JOIN  tipo_sala on tipo_sala.id_tipo=id_tipo_sala;"
+    cursor.execute(query)
+    data=cursor.fetchall()
+    cursor.close
+    return render_template('Sala.html', salas = data)
+@app.route('/add_sala', methods = ['POST'])
+def add_sala():
+
+    nombre_sala = request.form['nombre_sala']
+    id_tipo_sala=request.form['id_tipo_sala']
+    cur = conexion.cursor()
+    cur.execute('INSERT INTO sala (nombre_sala, id_tipo_sala ) VALUES( %s, %s)', (nombre_sala, id_tipo_sala))
+    conexion.commit()
+    flash('Theater added successfully...')
+    return redirect(url_for("Salas")
+    )
+@app.route('/edit_sala/<string:id>', methods = ['POST', 'GET'])
+def get_salas(id):
+    cur=conexion.cursor()
+    cur.execute("SELECT * from sala where id_sala = {0}".format(id))
+    data = cur.fetchall()
+    return render_template('edit-sala.html',sala=data[0] )
+@app.route('/update_sala/<id>', methods=['POST'])
+def update_sala(id):
+    if request.method=='POST':
+        nombre_sala=request.form['nombre_sala']
+        id_tipo_sala=request.form['id_tipo_sala']
+        cur=conexion.cursor()
+        cur.execute("""
+        UPDATE sala
+        SET nombre_sala=%s,
+            id_tipo_sala=%s
+        WHERE id_sala = %s
+        """, (nombre_sala, id_tipo_sala, id))
+        conexion.commit()
+        flash('Theater Updated Successfully')
+        return redirect(url_for('Salas'))
+@app.route('/delete_sala/<string:id>', methods = ['POST', 'GET'])
+def delete_sala(id):
+    cur=conexion.cursor()
+    cur.execute('DELETE FROM sala WHERE id_sala = {0}'.format(id))
+    conexion.commit()
+    flash('Theater Removed Successfully...')
+    return redirect(url_for('Salas'))
+
+
+
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)

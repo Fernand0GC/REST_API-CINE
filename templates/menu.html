@@ -9,7 +9,61 @@
 </head>
 <body>
   <br><br><br><br><br><br>
-  
+     {% for dato in pelicula %}
+    <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body bg-success">
+        <h5 class="card-title">cantidad de peliculas</h5>
+        <center>
+    <td>{{ dato.0 }}</td> 
+    <!center>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% for dato in empleado %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body bg-info">
+        <h5 class="card-title">empleados activos</h5>
+        <center>
+        <td>{{ dato.0 }}</td> 
+        <!center>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<br><br><br><br><br>
+     {% for dato in clientes %}
+    <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body bg-warning">
+        <h5 class="card-title">cantidad de clientes</h5>
+        <center>
+    <td>{{ dato.0 }}</td> 
+    <!center>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% for dato in salas %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body bg-primary">
+        <h5 class="card-title">salas disponibles</h5>
+        <center>
+        <td>{{ dato.0 }}</td> 
+        <!center>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<br><br><br><br><br>
+
     <img src="  {{ url_for('static', filename='images/emi.png') }}" class="card-img-top" alt="emi">
     <br><br><br><br>
 

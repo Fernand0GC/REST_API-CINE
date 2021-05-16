@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {%block body%}
+<script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="card card-body">
@@ -13,7 +14,8 @@
                 <div class="form-group">
                     <input type="text" name="identidad_empleado" placeholder="CI..." class="form-control" value="{{ empleado.5}}">
                 </div>
-                <select name="tipo_cargo"  value="{{ empleado.2}}">
+                <select name="tipo_cargo" >
+                    <option selected>Selecciona su Cargo</option>
                     <option value=1>Administracion</option>
                     <option value=2>Proyectista</option>
                     <option value=3>Cajero de Boleteria</option>
@@ -21,9 +23,13 @@
                     <option value=5>Encargado de Sala</option>
                 </select>
                 <br><br>
-                <div class="form-group">
-                    <input type="text" name="jefe" placeholder="ID Jefe..." class="form-control" value="{{ empleado.1}}">
-                </div>
+                <select name="jefe" >
+                    <option selected>Selecciona su Jefe</option>
+                    <option value=1>Fernando Rivero Torrez</option>
+                    <option value=2>Jose Carlos Medina Suarez</option>
+                </select>
+                <br><br>
+
                 <div class="form-group">
                     <input type="date" name="fecha_ingreso" placeholder="Fecha de Ingreso..." class="form-control" value="{{ empleado.6}}">
                 </div>
@@ -39,4 +45,10 @@
         </div>
     </div>
 </div>
+<br><br><br><br>
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+      <li class="page-item" ><a class="page-link " href="/Empleado"><i class="fas fa-long-arrow-alt-left"></i></a></li>
+    </ul>
+  </nav>
 {% endblock%}
