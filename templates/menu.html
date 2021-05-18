@@ -14,10 +14,12 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body bg-success">
-        <h5 class="card-title">cantidad de peliculas</h5>
+        <h3 class="card-title">Cantidad de peliculas</h3>
         <center>
+        <H1>
     <td>{{ dato.0 }}</td> 
-    <!center>
+    </H1>
+    </center>
       </div>
     </div>
   </div>
@@ -26,10 +28,12 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body bg-info">
-        <h5 class="card-title">empleados activos</h5>
+        <h3 class="card-title">Empleados activos</h3>
         <center>
+        <H1>
         <td>{{ dato.0 }}</td> 
-        <!center>
+        </H1>
+        </center>
       </div>
     </div>
   </div>
@@ -41,10 +45,12 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body bg-warning">
-        <h5 class="card-title">cantidad de clientes</h5>
+        <h3 class="card-title">Cantidad de clientes</h3>
         <center>
+        <H1>
     <td>{{ dato.0 }}</td> 
-    <!center>
+    </H1>
+    </center>
       </div>
     </div>
   </div>
@@ -53,10 +59,12 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body bg-primary">
-        <h5 class="card-title">salas disponibles</h5>
+        <h3 class="card-title">Salas disponibles</h3>
         <center>
+        <H1>
         <td>{{ dato.0 }}</td> 
-        <!center>
+        </H1>
+        </center>
       </div>
     </div>
   </div>
@@ -64,15 +72,20 @@
 {% endfor %}
 <br><br><br><br><br>
 
-    <img src="  {{ url_for('static', filename='images/emi.png') }}" class="card-img-top" alt="emi">
+    <img src="  {{ url_for('static', filename='images/Videographer-pana.png') }}" class="card-img-top" alt="video">
     <br><br><br><br>
 
     <p>El presente proyecto fue desarrollado en su totalidad por estudiantes de la  <a href="https://www.emi.edu.bo/">ESCUELA MILITAR DE INGENIERIA</a> para poder realizar CRUD sobre las diferentes tablas dentro de nuestra base de datos.</p>
     <p>se trataria de un diseño web para el control de un cine.</p>
-    <img src="  {{ url_for('static', filename='images/emi2.png') }}" class="card-img-top" alt="emi">
+    <center>
+    <img src="{{ url_for('static', filename='images/emi2.png') }}" class="rounded float-start" alt="emi">
+    <img src=" {{ url_for('static', filename='images/emi.png') }}" class="rounded float-end" alt="emi">
+    <!center>
+<br><br><br><br><br><br>
 
-    <p>La siguiente imagen muestra el <strong>Diagrama de entidad Relacion</strong> donde vemos todas las relaciones de las tablas para poder.</p>
-    <p>conformar nuestro cine.</p>
+    <p>La siguiente imagen muestra el <strong>Diagrama de entidad Relacion</strong> donde vemos todas las relaciones de las tablas para poder
+    conformar nuestro cine.</p>
+    <br><br><br><br><br><br>
     <img src="  {{ url_for('static', filename='images/MR.png') }}" class="card-img-top" alt="emi">
 </body>
 </html>

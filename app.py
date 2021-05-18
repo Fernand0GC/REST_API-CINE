@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 #conexion a base de datos
 conexion = psycopg2.connect(
-    host = "127.0.0.1", 
-    database = "Cine", 
-    user = "postgres", 
-    password = "73062466Fer")
+    host = "ec2-18-214-140-149.compute-1.amazonaws.com", 
+    database = "d7oi4tej1b57ta", 
+    user = "xnwwboulwuegts", 
+    password = "6b94116a31888bd953eff4eacec821a90d6dd403413a2a65207b3ebedbf0d9e4")
 
 # settings
 app.secret_key='my secret key'
@@ -250,8 +250,71 @@ def delete_sala(id):
     conexion.commit()
     flash('Theater Removed Successfully...')
     return redirect(url_for('Salas'))
+#FIN TABLA SALA
 
+#TABLA FUNCION
+@app.route('/Funcion')
+def Funciones():
+    cursor=conexion.cursor()
+    query="select id_funcion, nombre_sala, nombre_pelicula, horario from funcion INNER JOIN sala on (funcion.id_sala=sala.id_sala)INNER JOIN pelicula on (funcion.id_pelicula=pelicula.id_pelicula);"
+    cursor.execute(query)
+    data=cursor.fetchall()
+    cursor.close
+    cursor=conexion.cursor()
+    cursor.execute('select id_pelicula, nombre_pelicula from pelicula')
+    datapelicula=cursor.fetchall()
+    cursor.close
+    return render_template('Funcion.html', funciones = data, peliculas = datapelicula)
+@app.route("/add_funcion", methods = ["POST"])
+def add_funcion():
+    id_pelicula = request.form['id_pelicula']
+    id_sala=request.form['id_sala']
+    horario=request.form['horario']
+    cur = conexion.cursor()
+    cur.execute('INSERT INTO funcion (id_pelicula, id_sala, horario ) VALUES( %s, %s, %s)', (id_pelicula, id_sala, horario))
+    conexion.commit()
+    flash('Show added successfully...')
+    return redirect(url_for("Funciones"))
+@app.route('/edit_funcion/<string:id>', methods = ['POST', 'GET'])
+def get_funcion(id):
+    cur=conexion.cursor()
+    cur.execute('SELECT * FROM funcion WHERE id_funcion = %s', (id))
+    data = cur.fetchall()
+    cursor=conexion.cursor()
+    cursor.execute('SELECT id_pelicula, nombre_pelicula from pelicula')
+    datapelicula=cursor.fetchall()
+    cursor.close
+    return render_template('edit-funcion.html',funcion=data[0], peliculas = datapelicula )
+@app.route('/update_funcion/<id>', methods=['POST'])
+def update_funcion(id):
+    if request.method=='POST':
+        id_pelicula=request.form['id_pelicula']
+        id_sala=request.form['id_sala']
+        horario=request.form['horario']
+        cur=conexion.cursor()
+        cur.execute("""
+        UPDATE funcion
+        SET id_pelicula=%s,
+            id_sala=%s,
+            horario=%s
+        WHERE id_funcion = %s
+        """, (id_pelicula, id_sala, horario, id))
+        conexion.commit()
+        flash('Show Updated Successfully')
+        return redirect(url_for('Funciones'))
+@app.route('/delete_funcion/<string:id>', methods = ['POST', 'GET'])
+def delete_funcion(id):
+    cur=conexion.cursor()
+    cur.execute('DELETE FROM funcion WHERE id_funcion = {0}'.format(id))
+    conexion.commit()
+    flash('Theater Removed Successfully...')
+    return redirect(url_for('Funciones'))
+#FIN TABLA FUNCION
 
+#TABLA TICKET
+@app.route('/Ticket')
+def ticket():
+    pass
 
 
 if __name__ == '__main__':

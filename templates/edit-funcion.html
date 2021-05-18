@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{%block body%}
+<script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card card-body">
+            <form action="/update_funcion/{{funcion.0}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="id_pelicula" placeholder="id Pelicula" class="form-control" value="{{ funcion.2 }}">
+                </div>
+                <select name="id_sala" class="form-select" aria-label="Default select example">
+                    <option value=2>Sala 1 2D</option>
+                    <option value=3>Sala 2 2D</option>
+                    <option value=4>Sala 3 2D</option>
+                    <option value=5>Sala 4 3D</option>
+                    <option value=6>Sala 5 3D</option>
+                    <option value=7>Sala 6 3D</option>
+                    <option value=8>Sala 7-VIP/3D</option>
+                    <option value=9>Sala 8-VIP/3D</option>
+                    <option value=10>Sala 9-VIP/2D</option>
+                </select>
+                <br><br><br>
+                <div class="form-group">
+                    <input type="datetime-local" name="horario" placeholder=" Horario " class="form-control" >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+<table class="table table-hover ">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Pelicula</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pelicula in peliculas %}
+    <tr>
+    <td>{{ pelicula.0 }}</td>
+    <td>{{ pelicula.1 }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+<br><br><br><br>
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+      <li class="page-item" ><a class="page-link " href="/Funciones"><i class="fas fa-long-arrow-alt-left"></i></a></li>
+    </ul>
+  </nav>
+{% endblock%}

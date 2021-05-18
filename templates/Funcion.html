@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+{%block body%}
+<div class="row">
+    <div class="col-md-5">
+
+        <head>
+
+            {%with messages = get_flashed_messages()%}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <script src="https://kit.fontawesome.com/c9d3e98692.js" crossorigin="anonymous"></script>
+        </head>
+        <div class="card card-body">
+            <form action="add_funcion" method="POST">
+                <div class="form-group">
+                    <input type="text" name="id_pelicula" placeholder="id Pelicula" class="form-control">
+                </div>
+                <select name="id_sala" class="form-select" aria-label="Default select example">
+                    <option value=2>Sala 1 2D</option>
+                    <option value=3>Sala 2 2D</option>
+                    <option value=4>Sala 3 2D</option>
+                    <option value=5>Sala 4 3D</option>
+                    <option value=6>Sala 5 3D</option>
+                    <option value=7>Sala 6 3D</option>
+                    <option value=8>Sala 7-VIP/3D</option>
+                    <option value=9>Sala 8-VIP/3D</option>
+                    <option value=10>Sala 9-VIP/2D</option>
+
+
+                </select>
+                <br><br><br>
+                <div class="form-group">
+                    <input type="datetime-local" name="horario" placeholder=" Horario " class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <table class="table table-striped table-hover table-bordered table-sm bg-secondary">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>sala</td>
+                    <td>pelicula</td>
+                    <td>horario</td>
+                    <td>Operacion</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for funcion in funciones %}
+                <tr>
+                    <td>{{ funcion.0 }}</td>
+                    <td>{{ funcion.1 }}</td>
+                    <td>{{ funcion.2 }}</td>
+                    <td>{{ funcion.3 }}</td>
+                    <td>
+                        <center>
+                            <a href="/edit_funcion/{{funcion.0}}" class="btn btn-primary"><i
+                                    class="far fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+                            <a href="/delete_funcion/{{funcion.0}}" class="btn btn-danger btn-delete"><i
+                                    class="far fa-trash-alt"></i></a>
+                        </center>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br><br>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+<table class="table table-hover ">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Pelicula</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pelicula in peliculas %}
+    <tr>
+    <td>{{ pelicula.0 }}</td>
+    <td>{{ pelicula.1 }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+
+<br><br><br><br>
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link " href="/tablas"><i class="fas fa-long-arrow-alt-left"></i></a></li>
+    </ul>
+</nav>
+
+
+
+
+
+
+
+
+{% endblock %}
