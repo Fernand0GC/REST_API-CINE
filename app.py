@@ -13,6 +13,7 @@ conexion = psycopg2.connect(
 # settings
 app.secret_key='my secret key'
 
+#menu
 @app.route('/')
 def index():
     cursor = conexion.cursor()
@@ -27,10 +28,12 @@ def index():
     cursor.close
     return render_template('menu.html',salas=cantsalas, clientes=cantcliente, empleado=cantempleado, pelicula=cantpelicula)
 
+#info
 @app.route('/info')
 def info():
     return render_template('info.html')
-    
+
+#tablas    
 @app.route('/tablas')
 def tablas():
     return render_template('tablas.html')
